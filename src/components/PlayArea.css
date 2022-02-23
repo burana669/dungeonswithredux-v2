@@ -1,0 +1,70 @@
+.playarea-container {
+    display: grid;
+    grid-template-areas:
+      "a b c d"
+      "e f g h"
+      "i j k l"
+      "m n o p";
+    height: 50vh;
+    width: 50vh;
+    background-color: rgb(255, 127, 127);
+    text-align: center;
+  }
+  
+  .playarea-11 {
+    grid-area: a;
+  }
+  
+  .playarea-12 {
+    grid-area: b;
+  }
+  
+  .playarea-13 {
+    grid-area: c;
+  }
+  
+  .playarea-14 {
+    grid-area: d;
+  }
+  
+  .playarea-21 {
+    grid-area: e;
+  }
+  
+  .playarea-22 {
+    grid-area: f;
+  }
+  
+  .playarea-23 {
+    grid-area: g;
+  }
+  
+  .playarea-24 {
+    grid-area: h;
+  }
+  
+  .playarea-31 {
+    grid-area: i;
+  }
+  .playarea-32 {
+    grid-area: j;
+  }
+  .playarea-33 {
+    grid-area: k;
+  }
+  .playarea-34 {
+    grid-area: l;
+  }
+  
+  .playarea-41 {
+    grid-area: m;
+  }
+  .playarea-42 {
+    grid-area: n;
+  }
+  .playarea-43 {
+    grid-area: o;
+  }
+  .playarea-44 {
+    grid-area: p;
+  }
