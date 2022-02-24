@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { stringify } from "uuid";
 import "./PlayArea.css"
 
 export const PlayArea = () => {

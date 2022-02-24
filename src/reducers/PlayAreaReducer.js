@@ -17,31 +17,18 @@ export const PlayAreaReducer = (positions = [], action) => {
         };
         return [...positions, newposition2];
   
-      case "CHANGE_POSITIONX":
-        const newposition3 = positions.map((element) => {
-          if (
-            element.id === action.payload.id &&
-            action.payload.newPositionX <= 4 &&
-            action.payload.newPositionX >= 1
-          ) {
-            element.positionX = action.payload.newPositionX;
-            return element;
-          } else return element;
-        });
+      case "CHANGE_POSITION":
+
+        return {
+          ...positions,
+          [id]: {...positions[id], 
+          positionX: action.payload.positionX, 
+          positionY:action.payload.positionY}
+        }
+          
+        
+        
         return newposition3;
-  
-      case "CHANGE_POSITIONY":
-        const newposition4 = positions.map((element) => {
-          if (
-            element.id === action.payload.id &&
-            action.payload.newPositionY <= 4 &&
-            action.payload.newPositionY >= 1
-          ) {
-            element.positionY = action.payload.newPositionY;
-            return element;
-          } else return element;
-        });
-        return newposition4;
       default:
         return positions;
     }

@@ -41,24 +41,17 @@ export const createMob = (mob) => {
   };
 };
 
-export const rePositionX = (newPositionX, id) => {
+export const rePosition = (newPositionX, newPositionY, id) => {
   return {
-    type: "CHANGE_POSITIONX",
+    type: "CHANGE_POSITION",
     payload: {
       id,
       newPositionX,
+      newPositionY
     },
   };
 };
-export const rePositionY = (newPositionY, id) => {
-  return {
-    type: "CHANGE_POSITIONY",
-    payload: {
-      id,
-      newPositionY,
-    },
-  };
-};
+
 export const changeView = (newView) => {
   return {
     type: "CHANGE_VIEW",
