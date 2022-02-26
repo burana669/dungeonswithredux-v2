@@ -1,32 +1,22 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {rePosition} from "../actions"
 
-const Movement = (XY, value, id) => {
+export const movement = (XY, value, target) => {
 
-    const dispatch = useDispatch() 
-    const target = useSelector((state) => state.PlayerReducer)
-    console.log(target)
-
-    updatetarget(target, XY, value)
-    
-    dispatch(rePosition(target.positionX, target.positionY, id))
-
-    return <React.Fragment></React.Fragment>
-}
-
-const updatetarget = (target, XY, value) => {
-
-    if (XY === "X") { 
-        target.positionX += value
-    } 
-    else if (XY === "Y") {  
-        target.positionY += value
+        if (XY === "X") { 
+            target.positionX += value
+        } 
+        else if (XY === "Y") {  
+            target.positionY += value
+        }
+        return rePosition(target.id, target.positionX, target.positionY )
     }
-    return target
-}
 
-export default Movement
+   
+
+
+
+
 
 
 

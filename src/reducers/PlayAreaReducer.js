@@ -1,3 +1,5 @@
+import produce from "immer";
+
 export const PlayAreaReducer = (positions = [], action) => {
     switch (action.type) {
       case "CREATE_MOB":
@@ -18,17 +20,31 @@ export const PlayAreaReducer = (positions = [], action) => {
         return [...positions, newposition2];
   
       case "CHANGE_POSITION":
+        
+        let nextState = produce((positions, draftState) => {
+          draftState.map(element => {
+            if (element.id === action.payload.id) {
+              element.positionX = action.payload.positionX
+              element.positionY = action.payload.positionY
 
-        return {
-          ...positions,
-          [id]: {...positions[id], 
-          positionX: action.payload.positionX, 
-          positionY:action.payload.positionY}
-        }
+              return element
+            }
+              else return element
+          
+        
+          
+          })
+        })
+        
+        return nextState
+          
+          
+       
+
           
         
         
-        return newposition3;
+       
       default:
         return positions;
     }
