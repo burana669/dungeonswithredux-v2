@@ -1,30 +1,33 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { rePositionX, rePositionY } from "../actions";
+import {useDispatch, useSelector} from "react-redux"
+import {changePosition} from "../actions"
 
 export const HandleKeyPress = () => {
 
   const dispatch = useDispatch()
-
-  const positionX = useSelector((state) => state.PlayerReducer.positionX)
-  const positionY = useSelector((state) => state.PlayerReducer.positionY)
+     
+  const target = useSelector((state) => state.player.payload)
+  
+  
+  
   useEffect(() => {
 
    
   
     const handleKey = (e) => {
+     
       if (e.key === "ArrowRight") {
         e.preventDefault();
-        dispatch(rePositionX(positionX + 1, "player"));
+       dispatch(changePosition({positionX: target.positionX+1, positionY: target.positionY, id: target.id}));
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
-        dispatch(rePositionX(positionX - 1, "player"));
+        dispatch(changePosition({positionX: target.positionX -1, positionY: target.positionY, id: target.id}));
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
-        dispatch(rePositionY(positionY - 1, "player"));
+        dispatch(changePosition({positionX: target.positionX, positionY: target.positionY + 1, id: target.id}));
       } else if (e.key === "ArrowDown") {
         e.preventDefault();
-        dispatch(rePositionY(positionY + 1, "player"));
+        dispatch(changePosition({positionX: target.positionX, positionY: target.positionY - 1, id: target.id}));
       }
     };
     window.addEventListener("keydown", handleKey);

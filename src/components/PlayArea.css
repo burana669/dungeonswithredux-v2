@@ -1,10 +1,10 @@
 .playarea-container {
     display: grid;
     grid-template-areas:
-      "a b c d"
-      "e f g h"
+      "m n o p"
       "i j k l"
-      "m n o p";
+      "e f g h"
+      "a b c d";
     height: 50vh;
     width: 50vh;
     background-color: rgb(255, 127, 127);

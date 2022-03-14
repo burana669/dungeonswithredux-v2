@@ -1,3 +1,4 @@
+import { createAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from "uuid";
 
 export const createItem = (item) => {
@@ -26,8 +27,9 @@ export const equipItem = (item) => {
   };
 };
 
-export const createMob = (mob) => {
-  const { name, health, damage, positionX, positionY } = mob;
+export const createMob = createAction("createMob",
+function prepare(props) {
+  const { name, health, damage, positionX, positionY } = props;
   return {
     type: "CREATE_MOB",
     payload: {
@@ -39,26 +41,20 @@ export const createMob = (mob) => {
       positionY,
     },
   };
-};
+})
 
-export const rePositionX = (newPositionX, id) => {
+export const changePosition = createAction("changePosition",
+function prepare(props){
+
   return {
-    type: "CHANGE_POSITIONX",
     payload: {
-      id,
-      newPositionX,
-    },
-  };
-};
-export const rePositionY = (newPositionY, id) => {
-  return {
-    type: "CHANGE_POSITIONY",
-    payload: {
-      id,
-      newPositionY,
-    },
-  };
-};
+    positionX: props.positionX,
+    positionY: props.positionY,
+    id: props.id 
+    }
+  }
+})
+
 export const changeView = (newView) => {
   return {
     type: "CHANGE_VIEW",
@@ -69,21 +65,22 @@ export const changeView = (newView) => {
   }
 }
 
-export const createPlayer = (player) => {
-  const { name, health, damage, positionX, positionY } = player;
-
+export const createPlayer = createAction("createPlayer", 
+function prepare(props){
+ 
   return {
-    type: "CREATE_PLAYER",
     payload: {
       id: "player",
-      name,
-      health,
-      damage,
-      positionX,
-      positionY,
-    },
-  };
-};
+      name: props.name,
+      health: props.health,
+      damage: props.damage,
+      positionX: props.positionX,
+      positionY: props.positionY,
+    }
+  }
+
+  
+})
 
 export const startDrag = (event) => {
   console.log("ACTION: Start dragging");
