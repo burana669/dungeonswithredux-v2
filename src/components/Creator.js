@@ -1,10 +1,17 @@
 
-import {useDispatch} from "react-redux"
-import {createMob, createPlayer, changeView} from "../actions"
 
-export const Creator = (props) => {
+import { useDispatch} from "react-redux"
+import { useEffect } from "react"
+import {changeView} from "../actions"
+import { createMob } from "../actions"
+import {createPlayer} from "../actions"
 
-const dispatch = useDispatch() 
+
+
+export const Creator = () => {
+const dispatch = useDispatch()
+
+
 
 const newmob = {
     name: "T",
@@ -23,11 +30,12 @@ const newmob2 = {
 }
 
 const player = {
+    id: "player",
     name: "@",
     damage: 1,
     health: 100,
     positionX: 2,
-    positionY: 4
+    positionY: 1
 }
 
 const newView = {
@@ -37,10 +45,15 @@ const newView = {
 
 }
 
-dispatch(createMob(newmob))
-dispatch(createMob(newmob2))
-dispatch(createPlayer(player))
-dispatch(changeView(newView))
+  
+  useEffect (() => {
+    dispatch(createMob(newmob))
+    dispatch(createMob(newmob2))
+    dispatch(createPlayer(player))
+    dispatch(changeView(newView))
+    
+  }, [])
+
 
 return null
 
