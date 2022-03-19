@@ -33,6 +33,7 @@ function prepare(props) {
   return {
     type: "CREATE_MOB",
     payload: {
+      type: "enemy",
       id: uuidv4(),
       name,
       health,
@@ -55,6 +56,17 @@ function prepare(props){
   }
 })
 
+export const takeDamage = createAction("takeDamage",
+function prepare(props){
+
+  return {
+    payload: {
+    amount: props.amount,
+    id: props.id 
+    }
+  }
+})
+
 export const changeView = (newView) => {
   return {
     type: "CHANGE_VIEW",
@@ -70,6 +82,7 @@ function prepare(props){
  
   return {
     payload: {
+      type: "player",
       id: "player",
       name: props.name,
       health: props.health,

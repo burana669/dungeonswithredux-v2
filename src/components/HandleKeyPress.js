@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {changePosition} from "../actions"
+import { checkcollision } from "../functions/checkcollision";
 
 export const HandleKeyPress = () => {
 
   const dispatch = useDispatch()
      
   const target = useSelector((state) => state.player.payload)
+  const positions = useSelector((state) => state.positions.payload)
+  
   
   
   
@@ -18,16 +20,29 @@ export const HandleKeyPress = () => {
      
       if (e.key === "ArrowRight") {
         e.preventDefault();
-       dispatch(changePosition({positionX: target.positionX+1, positionY: target.positionY, id: target.id}));
+        
+       const newPosition =  {positionX: target.positionX+1, 
+        positionY: target.positionY,
+         id: target.id}
+       checkcollision(newPosition, dispatch, positions, target.damage);
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
-        dispatch(changePosition({positionX: target.positionX -1, positionY: target.positionY, id: target.id}));
+        const newPosition = {positionX: target.positionX -1, 
+          positionY: target.positionY, 
+          id: target.id}
+        checkcollision(newPosition, dispatch, positions, target.damage);
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
-        dispatch(changePosition({positionX: target.positionX, positionY: target.positionY + 1, id: target.id}));
+        const newPosition = {positionX: target.positionX,
+           positionY: target.positionY + 1,
+            id: target.id}
+        checkcollision(newPosition, dispatch, positions, target.damage);
       } else if (e.key === "ArrowDown") {
         e.preventDefault();
-        dispatch(changePosition({positionX: target.positionX, positionY: target.positionY - 1, id: target.id}));
+        const newPosition = {positionX: target.positionX,
+          positionY: target.positionY - 1,
+           id: target.id}
+        checkcollision(newPosition, dispatch, positions, target.damage);
       }
     };
     window.addEventListener("keydown", handleKey);
