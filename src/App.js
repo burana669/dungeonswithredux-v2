@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Creator } from './components/Creator';
+import { PlayerStats } from './components/PlayerStats';
+import { EnemeyList } from './components/EnemyList';
+import { InventoryButton } from './components/InventoryButton';
 
 import './App.css';
 
@@ -14,6 +17,11 @@ function App() {
       
       <Creator></Creator>
       <PlayArea></PlayArea>
+      <PlayerStats></PlayerStats>
+      <EnemeyList></EnemeyList>
+      <InventoryButton></InventoryButton>
+
+
       <HandleKeyPress></HandleKeyPress>
       
     </div>

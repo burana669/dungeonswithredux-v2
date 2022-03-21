@@ -1,31 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from "uuid";
 
-export const createItem = (item) => {
-  const { name, bonus, type } = item;
-  return {
-    type: "ADD_ITEM",
-    payload: {
-      id: uuidv4(),
-      name,
-      bonus,
-      type,
-    },
-  };
-};
 
-export const equipItem = (item) => {
-  const { name, bonus, type, id } = item;
-  return {
-    type: "EQUIP_ITEM",
-    payload: {
-      id,
-      name,
-      bonus,
-      type,
-    },
-  };
-};
 
 export const createMob = createAction("createMob",
 function prepare(props) {
@@ -67,15 +43,16 @@ function prepare(props){
   }
 })
 
-export const changeView = (newView) => {
+export const changeView = createAction("changeView", 
+function prepare(props){
+  
   return {
-    type: "CHANGE_VIEW",
     payload: {
-      inventory: newView.inventory,
-      playArea: newView.playArea
+    inventory: props.inventory,
+    playArea: props.playArea
     }
   }
-}
+})
 
 export const createPlayer = createAction("createPlayer", 
 function prepare(props){
@@ -95,7 +72,7 @@ function prepare(props){
   
 })
 
-export const startDrag = (event) => {
+/* export const startDrag = (event) => {
   console.log("ACTION: Start dragging");
   return {
     type: "START_DRAG_ITEM",
@@ -118,3 +95,30 @@ export const drop = (event) => {
     paylod: event,
   };
 };
+ */
+
+/* export const createItem = (item) => {
+  const { name, bonus, type } = item;
+  return {
+    type: "ADD_ITEM",
+    payload: {
+      id: uuidv4(),
+      name,
+      bonus,
+      type,
+    },
+  };
+};
+
+export const equipItem = (item) => {
+  const { name, bonus, type, id } = item;
+  return {
+    type: "EQUIP_ITEM",
+    payload: {
+      id,
+      name,
+      bonus,
+      type,
+    },
+  };
+}; */

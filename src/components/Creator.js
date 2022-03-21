@@ -39,8 +39,8 @@ const player = {
 }
 
 const newView = {
-    inventory: false,
-    playArea: true,
+    Inventory: false,
+    PlayArea: true,
     
 
 }
@@ -50,7 +50,7 @@ const newView = {
     dispatch(createMob(newmob))
     dispatch(createMob(newmob2))
     dispatch(createPlayer(player))
-    dispatch(changeView(newView))
+    /* dispatch(changeView(newView)) */
     
   }, [])
 

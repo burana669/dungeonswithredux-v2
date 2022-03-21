@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./PlayArea.css"
 
 export const PlayArea = () => {
 
+    const view =  useSelector ((state) => state.View.payload.playArea)
     const positions = useSelector((state) => state.positions.payload)
     const areaPositions = positions.map((element) => {
         
@@ -14,9 +15,12 @@ export const PlayArea = () => {
 
     }
     )
+    
+    if (view === true) {
     return (
         <div>
             <div className="playarea-container">{areaPositions}</div>
         </div>
     )
+    } else return null
 }
