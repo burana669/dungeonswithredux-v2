@@ -4,6 +4,7 @@ import { Creator } from './components/Creator';
 import { PlayerStats } from './components/PlayerStats';
 import { EnemeyList } from './components/EnemyList';
 import { InventoryButton } from './components/InventoryButton';
+import { InventoryScreen } from './components/Inventory/Index';
 
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
       
       <Creator></Creator>
       <PlayArea></PlayArea>
+      <InventoryScreen></InventoryScreen>
       <PlayerStats></PlayerStats>
       <EnemeyList></EnemeyList>
       <InventoryButton></InventoryButton>

@@ -72,6 +72,62 @@ function prepare(props){
   
 })
 
+export const createItem = createAction("createItem",
+function prepare(props) {
+  return {
+    payload: {
+      type: props.type,
+      id: uuidv4(),
+      name: props.name,
+      armor: props.armor,
+      damage: props.damage
+    }
+  }
+})
+
+export const startDragging = createAction ("startDraggin",
+function prepare(props) {
+  return {
+    payload: props
+  }
+})
+export const clearDrag = createAction ("clearDrag",
+function prepare(props){
+  return {
+    
+  }
+})
+
+export const equipItem = createAction ("equip",
+function prepare(props) {
+  return {
+    payload: props
+  }
+})
+
+export const removeEquipment = createAction("removeEquipment",
+function prepare(props) {
+  return {
+    payload: { type: props.type }
+  }
+})
+
+export const putItemInInventory = createAction ("backBackItem", 
+function prepare(props) {
+  return {
+    payload: props
+  }
+})
+
+export const removeInventoryItem = createAction("removeInventoryItem",
+function prepare(props) {
+   return {
+     payload: props.id
+   }
+}
+)
+
+
 /* export const startDrag = (event) => {
   console.log("ACTION: Start dragging");
   return {

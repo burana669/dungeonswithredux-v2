@@ -4,7 +4,7 @@ import "./PlayArea.css"
 
 export const PlayArea = () => {
 
-    const view =  useSelector ((state) => state.View.payload.playArea)
+    const view =  useSelector ((state) => state.view.payload.playArea)
     const positions = useSelector((state) => state.positions.payload)
     const areaPositions = positions.map((element) => {
         

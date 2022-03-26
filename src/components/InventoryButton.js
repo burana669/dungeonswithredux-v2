@@ -7,8 +7,7 @@ import { changeView } from "../actions";
 
 export const InventoryButton = () => {
     const dispatch = useDispatch()
-    const view = useSelector((state) => state.View.payload.inventory)
-    console.log(view)
+    const view = useSelector((state) => state.view.payload.inventory)
 
     if (view === false){
     return <button onClick={ () => dispatch(changeView({inventory: true, playArea: false}))}>INVENTORY</button>
