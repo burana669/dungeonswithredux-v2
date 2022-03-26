@@ -1,0 +1,47 @@
+.inventory-container {
+    height: 50vh;
+    width: 50vh;
+    background-color: blanchedalmond;
+    display: grid;
+    grid-template-areas: "a b";
+}
+
+.equipment {
+    grid-area: a;
+    display: grid;
+    grid-row: auto;
+}
+.stuff {
+
+    grid-area: b;
+    
+}
+.Weapon {
+    height: 10vh;
+    width: 10vh;
+    display: block;
+    border-radius: 2%;
+    border-color: black;
+    background-color: gainsboro;
+    
+}
+.Head {
+    height: 10vh;
+    width: 10vh;
+    display: block;
+    border-radius: 2%;
+    border-color: black;
+    background-color: gainsboro;
+    
+    
+}
+.Loincloth {
+    height: 10vh;
+    width: 10vh;
+    display: block;
+    border-radius: 2%;
+    border-color: black;
+    background-color: gainsboro;
+    
+    
+}

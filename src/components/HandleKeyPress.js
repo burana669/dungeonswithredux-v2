@@ -8,9 +8,9 @@ export const HandleKeyPress = () => {
      
   const target = useSelector((state) => state.player.payload)
   const positions = useSelector((state) => state.positions.payload)
+  const weaponDamage = useSelector((state) => state.equipment.weapon.payload.damage)
   
-  
-  
+  const damage = target.damage + weaponDamage
   
   useEffect(() => {
 
@@ -24,25 +24,25 @@ export const HandleKeyPress = () => {
        const newPosition =  {positionX: target.positionX+1, 
         positionY: target.positionY,
          id: target.id}
-       checkcollision(newPosition, dispatch, positions, target.damage);
+       checkcollision(newPosition, dispatch, positions, damage);
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
         const newPosition = {positionX: target.positionX -1, 
           positionY: target.positionY, 
           id: target.id}
-        checkcollision(newPosition, dispatch, positions, target.damage);
+        checkcollision(newPosition, dispatch, positions, damage);
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
         const newPosition = {positionX: target.positionX,
            positionY: target.positionY + 1,
             id: target.id}
-        checkcollision(newPosition, dispatch, positions, target.damage);
+        checkcollision(newPosition, dispatch, positions, damage);
       } else if (e.key === "ArrowDown") {
         e.preventDefault();
         const newPosition = {positionX: target.positionX,
           positionY: target.positionY - 1,
            id: target.id}
-        checkcollision(newPosition, dispatch, positions, target.damage);
+        checkcollision(newPosition, dispatch, positions, damage);
       }
     };
     window.addEventListener("keydown", handleKey);
