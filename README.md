@@ -1,1 +1,1 @@
-Practicing redux with dungeon crawler mock-up.
+Practicing redux with dungeon crawler mockup.
