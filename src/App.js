@@ -11,16 +11,21 @@ import './App.css';
 import {PlayArea} from "./components/PlayArea"
 import { HandleKeyPress } from './components/HandleKeyPress';
 
-function App() {
+import { useDispatch } from 'react-redux';
+import { EnemyAi } from './components/EnemyAI';
+
+export function App() {
   
   return (
     <div className="App">
       
       <Creator></Creator>
+      <EnemyAi></EnemyAi>
       <PlayArea></PlayArea>
       <InventoryScreen></InventoryScreen>
       <PlayerStats></PlayerStats>
       <EnemeyList></EnemeyList>
+      
       <InventoryButton></InventoryButton>
 
 
@@ -30,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export const dispatch = useDispatch

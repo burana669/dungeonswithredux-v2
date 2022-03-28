@@ -23,7 +23,7 @@ const newmob = {
 
 const newmob2 = {
     name: "o",
-    damage: 4,
+    damage: 2,
     health: 10,
     positionX: 1,
     positionY: 3

@@ -97,6 +97,20 @@ function prepare(props){
     
   }
 })
+export const AITurnDone = createAction ("AITurnDone", 
+function prepare(props){
+  return {}
+})
+
+export const playerMoved = createAction("playerMoved",
+function prepare(props) {
+  return {}
+})
+
+export const AITakeTurn = createAction("AITakeTurn", 
+function prepare(props) {
+  return {}
+})
 
 export const equipItem = createAction ("equip",
 function prepare(props) {

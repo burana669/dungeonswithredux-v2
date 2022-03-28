@@ -1,9 +1,20 @@
-import {changePosition, takeDamage} from "../actions"
 
 
 
-export const checkcollision = (newPosition, dispatch, positions, damage) => {
-    
+import {changePosition, playerMoved, takeDamage} from "../actions"
+
+
+
+
+
+export const Checkcollision = (newPosition, positions, damage, dispatch) => {
+   
+  
+    if(newPosition.id === "player") {
+       
+        dispatch(playerMoved())
+    }
+   
    let collision = false
    let targetType = ""
    let targetId = ""
@@ -16,14 +27,22 @@ export const checkcollision = (newPosition, dispatch, positions, damage) => {
         }
 
     })
-    if (collision === false){
     
-    dispatch(changePosition(newPosition))
-    }
-    else if (collision === true, targetType = "enemy")
+    if (collision === true)
+    {
     
+       
+            
+        
     dispatch(takeDamage({amount: damage, id: targetId}))
+        
+    }else
+    dispatch(changePosition(newPosition))
     
     
     
+   
+   
+
 }
+

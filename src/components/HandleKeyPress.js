@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import { checkcollision } from "../functions/checkcollision";
+import { Checkcollision } from "../functions/Checkcollision";
+
 
 export const HandleKeyPress = () => {
 
@@ -9,6 +10,7 @@ export const HandleKeyPress = () => {
   const target = useSelector((state) => state.player.payload)
   const positions = useSelector((state) => state.positions.payload)
   const weaponDamage = useSelector((state) => state.equipment.weapon.payload.damage)
+  const enemies = useSelector((state) => state.enemies.payload)
   
   const damage = target.damage + weaponDamage
   
@@ -24,25 +26,29 @@ export const HandleKeyPress = () => {
        const newPosition =  {positionX: target.positionX+1, 
         positionY: target.positionY,
          id: target.id}
-       checkcollision(newPosition, dispatch, positions, damage);
+       Checkcollision(newPosition, positions, damage, dispatch);
+       
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
         const newPosition = {positionX: target.positionX -1, 
           positionY: target.positionY, 
           id: target.id}
-        checkcollision(newPosition, dispatch, positions, damage);
+        Checkcollision(newPosition, positions, damage, dispatch);
+        
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
         const newPosition = {positionX: target.positionX,
            positionY: target.positionY + 1,
             id: target.id}
-        checkcollision(newPosition, dispatch, positions, damage);
+        Checkcollision(newPosition, positions, damage, dispatch);
+        
       } else if (e.key === "ArrowDown") {
         e.preventDefault();
         const newPosition = {positionX: target.positionX,
           positionY: target.positionY - 1,
            id: target.id}
-        checkcollision(newPosition, dispatch, positions, damage);
+        Checkcollision(newPosition, positions, damage, dispatch);
+        
       }
     };
     window.addEventListener("keydown", handleKey);

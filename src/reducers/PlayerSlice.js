@@ -27,6 +27,11 @@ export const playerSlice = createSlice({
           state.payload.positionY = action.payload.positionY
          
         } })
+      builder.addCase("takeDamage", (state, action) => {
+        if(action.payload.id === "player") {
+        state.payload.health -= action.payload.amount
+        }
+      })
       }
     
     
