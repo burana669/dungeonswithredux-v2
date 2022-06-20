@@ -4,9 +4,7 @@ export const InventorySlice = createSlice({
     name: "Inventory",
     initialState: {payload: []},
     extraReducers: (builder) => {
-        builder.addCase("createItem", (state, action) => {
-            state.payload.push(action.payload)
-        })
+        
         builder.addCase("backBackItem", (state, action) => {
             state.payload.push(action.payload)
         })

@@ -10,39 +10,59 @@ import {changePosition, playerMoved, takeDamage} from "../actions"
 export const Checkcollision = (newPosition, positions, damage, dispatch) => {
    
   
-    if(newPosition.id === "player") {
-       
-        dispatch(playerMoved())
-    }
-   
+    
    let collision = false
-   let targetType = ""
-   let targetId = ""
+   let target = {}
     positions.map(element => {
         
-        if (element.positionX === newPosition.positionX && element.positionY === newPosition.positionY) {
+        if ((element.positionX === newPosition.positionX && element.positionY === newPosition.positionY) && 
+        (element.type !== "item" || element.type !== "hole")
+        ) {
             collision = true
-            targetType = element.type
-            targetId = element.id
+            target = element
         }
 
     })
+
+       
+    
+
+if(!newPosition.pass) {  
+   
     
     if (collision === true)
     {
     
-       
-            
+       console.log("collision")
+       console.log(target)
+        if (target.type === "player") {
+        console.log("playerdamage", target.id, damage)
+        dispatch(takeDamage({amount: damage, id: target.id}))
+        }else if (newPosition.id === "player" && target.type === "enemy") {
+        dispatch(takeDamage({amount: damage, id: target.id}))
+        }
         
-    dispatch(takeDamage({amount: damage, id: targetId}))
         
-    }else
-    dispatch(changePosition(newPosition))
+    }else {
+        console.log("dispatch")
+        dispatch(changePosition(newPosition))
+
+    }
     
+
+        
+ 
     
+}    
+if(newPosition.id === "player") {
+    console.log("PLAYERMOVeD")
+    dispatch(playerMoved())
+}
+}
+
     
    
    
 
-}
+
 

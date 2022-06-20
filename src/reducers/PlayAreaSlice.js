@@ -29,7 +29,20 @@ export const playAreaSlice = createSlice({
           })
         })
         builder.addCase("createMob", (state, action) => {
+          
+          let collision = false
+          
+          state.payload.map((element) => {
+            if((element.positionX === action.payload.positionX && 
+              element.positionY === action.payload.positionY) ||
+              (element.positionX === 2 && element.positionY === 1))
+              //second check for static player spawn position
+              collision = true
+          })
+          if (collision===false){
           state.payload.push(action.payload)
+          }else
+          console.log("spawn cancelled because collision")
         })
         builder.addCase("takeDamage", (state, action) =>  {
           state.payload.map(element => {
@@ -42,6 +55,9 @@ export const playAreaSlice = createSlice({
             }
           })
         })
+        builder.addCase("createItem", (state, action) => {
+          state.payload.push(action.payload)
+      })
     }
    
   

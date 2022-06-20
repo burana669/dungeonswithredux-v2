@@ -49,7 +49,8 @@ function prepare(props){
   return {
     payload: {
     inventory: props.inventory,
-    playArea: props.playArea
+    playArea: props.playArea,
+    gameOverScreen: props.gameOverScreen
     }
   }
 })
@@ -80,7 +81,9 @@ function prepare(props) {
       id: uuidv4(),
       name: props.name,
       armor: props.armor,
-      damage: props.damage
+      damage: props.damage,
+      positionX: props.positionX,
+      positionY: props.positionY
     }
   }
 })

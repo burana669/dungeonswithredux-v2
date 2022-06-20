@@ -43,7 +43,7 @@ listener.startListening({
         
 
         if (await listenerApi.condition(playerMoved)){
-            console.log("listener")
+           console.log("Playermoved2")
             listenerApi.dispatch(AITakeTurn())
         }
     }

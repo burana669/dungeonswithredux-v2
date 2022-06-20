@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import "./PlayArea.css"
 
@@ -6,12 +6,19 @@ export const PlayArea = () => {
 
     const view =  useSelector ((state) => state.view.payload.playArea)
     const positions = useSelector((state) => state.positions.payload)
+    
+    
+        
+    
     const areaPositions = positions.map((element) => {
         
-        
-        const classposition = "playarea-" + `${element.positionY}` + `${element.positionX}`
+   
 
-        return <div className={classposition} key = {element.id}>{element.name}</div>
+    
+        const classPosition = "playarea-" + `${element.positionX}` + `${element.positionY}`
+
+        console.log(classPosition)
+    return <div className={classPosition} key = {element.id}>{element.name}</div>
 
     }
     )
